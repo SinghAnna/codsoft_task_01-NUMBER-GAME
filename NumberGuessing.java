@@ -1,23 +1,21 @@
-
 import java.util.Scanner;
 
 public class NumberGuessing {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        
         int maxAttempts = 5;
         int round = 1;
-        boolean guessedCorrectly = false;
         int score = 0;
         boolean playAgain;
+
+        try (Scanner scanner = new Scanner(System.in)) {
 
        
 
         System.out.println("Welcome to the Number Guessing Game!");
        
 
-        int attempts = 0;
+        int attempts;
          do{
             attempts = 0; // Reset attempts for each new round
 
@@ -38,7 +36,6 @@ public class NumberGuessing {
                 if (userGuess == random) {
 
                     System.out.println(" Correct! You guessed it in " + attempts + " attempt(s).");
-                    guessedCorrectly = true;
                     score += (maxAttempts - attempts + 1); // Higher score for fewer attempts
                     break;
 
@@ -68,6 +65,6 @@ public class NumberGuessing {
          System.out.println("Total Rounds Played: " + round);
          System.out.println("Your Final Score: " + score);
          
-         scanner.close();
+        }
     }
 }
